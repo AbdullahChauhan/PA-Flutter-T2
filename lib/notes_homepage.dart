@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import './note.dart';
 import './newnote_page.dart';
 
@@ -69,7 +70,7 @@ class _NotesHomePageState extends State<NotesHomePage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(note.userName),
-                                Text(note.date.toString())
+                                Text(DateFormat.yMMMMd().format(note.date)),
                               ],
                             ),
                             Column(
