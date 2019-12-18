@@ -10,26 +10,7 @@ class NotesHomePage extends StatefulWidget {
 }
 
 class _NotesHomePageState extends State<NotesHomePage> {
-  final List<Note> notes = [
-    Note(
-        id: 'n001',
-        userName: 'Abdullah',
-        date: DateTime.now(),
-        noteDesc:
-            'You might want to create a list that scrolls horizontally rather than vertically. The ListView widget supports horizontal lists.'),
-    Note(
-        id: 'n002',
-        userName: 'Usama',
-        date: DateTime.now(),
-        noteDesc:
-            'Use the standard ListView constructor, passing in a horizontal scrollDirection, which overrides the default vertical direction.'),
-    Note(
-        id: 'n003',
-        userName: 'Usama',
-        date: DateTime.now(),
-        noteDesc:
-            'Use the standard ListView constructor, passing in a horizontal scrollDirection, which overrides the default vertical direction.'),
-  ];
+  List<Note> allNotes = [];
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +80,8 @@ class _NotesHomePageState extends State<NotesHomePage> {
               Expanded(
                 flex: 3,
                 child: Column(
-                  children: notes.map((note) {
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: allNotes.map((note) {
                     return Card(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -131,11 +113,22 @@ class _NotesHomePageState extends State<NotesHomePage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (_) {
             return AddNewNote(
-              userName: 'Abdullah',
+              userName: 'Abdullah.ch',
+              note: getNote,
             );
           }));
         },
       ),
     );
+  }
+
+  getNote(String note) {
+    setState(() {
+      this.allNotes.add(new Note(
+          id: DateTime.now().toString(),
+          userName: 'Abdullah.ch',
+          date: DateTime.now(),
+          noteDesc: note));
+    });
   }
 }
