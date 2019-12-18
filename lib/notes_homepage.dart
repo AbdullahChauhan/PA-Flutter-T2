@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import './note.dart';
+import './newnote_page.dart';
 
 class NotesHomePage extends StatefulWidget {
+
   @override
   _NotesHomePageState createState() => _NotesHomePageState();
 }
 
 class _NotesHomePageState extends State<NotesHomePage> {
+
   final List<Note> notes = [
     Note(
         id: 'n001',
@@ -85,7 +88,15 @@ class _NotesHomePageState extends State<NotesHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) {
+                return AddNewNote(userName: 'Abdullah',);
+              }
+            )
+          );
+        },
       ),
     );
   }
