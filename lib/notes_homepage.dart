@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import './resuable_useravatarcard.dart';
 import './note.dart';
 import './newnote_page.dart';
 
 class NotesHomePage extends StatefulWidget {
-
   @override
   _NotesHomePageState createState() => _NotesHomePageState();
 }
 
 class _NotesHomePageState extends State<NotesHomePage> {
-
   final List<Note> notes = [
     Note(
         id: 'n001',
@@ -46,13 +45,53 @@ class _NotesHomePageState extends State<NotesHomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(bottom: 16.0, right: 8.0),
-                      decoration: BoxDecoration(
-                          color: Colors.blueAccent,
-                          borderRadius: BorderRadius.circular(12.0)),
-                      width: 160.0,
-                      height: 120.0,
+                    ReusableUserAvatarCard(
+                      userName: 'John Michaels',
+                      imgUrl: 'assets/images/avt1.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Saqlain Kumar',
+                      imgUrl: 'assets/images/avt2.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Austen Tyler',
+                      imgUrl: 'assets/images/avt3.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Zoha Emery',
+                      imgUrl: 'assets/images/avt4.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Aniyah Zhang',
+                      imgUrl: 'assets/images/avt5.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Jamel Coombes',
+                      imgUrl: 'assets/images/avt6.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Andrew Bannister',
+                      imgUrl: 'assets/images/avt7.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Haris Quintero',
+                      imgUrl: 'assets/images/avt8.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Keziah Talley',
+                      imgUrl: 'assets/images/avt9.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Shah Murray',
+                      imgUrl: 'assets/images/avt10.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Elara Navarro',
+                      imgUrl: 'assets/images/avt11.jpg',
+                    ),
+                    ReusableUserAvatarCard(
+                      userName: 'Rocky Downs',
+                      imgUrl: 'assets/images/avt12.jpg',
                     ),
                   ],
                 ),
@@ -90,13 +129,11 @@ class _NotesHomePageState extends State<NotesHomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) {
-                return AddNewNote(userName: 'Abdullah',);
-              }
-            )
-          );
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+            return AddNewNote(
+              userName: 'Abdullah',
+            );
+          }));
         },
       ),
     );
