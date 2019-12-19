@@ -9,7 +9,7 @@ class ReusableUserAvatarCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160.0,
+      width: 140.0,
       margin: EdgeInsets.only(bottom: 16.0, right: 8.0),
       child: ClipRRect(
           borderRadius: BorderRadius.circular(12.0),

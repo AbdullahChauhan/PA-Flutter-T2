@@ -10,7 +10,20 @@ class NotesHomePage extends StatefulWidget {
 }
 
 class _NotesHomePageState extends State<NotesHomePage> {
-  List<Note> allNotes = [];
+  List<Note> allNotes = [
+    // Note(
+    //     userName: 'John Michaels',
+    //     date: DateTime.now(),
+    //     noteDesc:
+    //         "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.")
+  ];
+
+  void getNote(String note) {
+    setState(() {
+      allNotes.add(new Note(
+          userName: 'Abdullah.ch', date: DateTime.now(), noteDesc: note));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +91,13 @@ class _NotesHomePageState extends State<NotesHomePage> {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: allNotes.map((note) {
-                    return Card(
+                    return allNotes.isEmpty ? Center(
+                      child: Text('Empty List ...'),
+                    ) : Card(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -120,15 +135,5 @@ class _NotesHomePageState extends State<NotesHomePage> {
         },
       ),
     );
-  }
-
-  getNote(String note) {
-    setState(() {
-      this.allNotes.add(new Note(
-          id: DateTime.now().toString(),
-          userName: 'Abdullah.ch',
-          date: DateTime.now(),
-          noteDesc: note));
-    });
   }
 }
